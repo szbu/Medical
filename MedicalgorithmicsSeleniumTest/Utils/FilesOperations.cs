@@ -25,17 +25,10 @@ namespace MedicalgorithmicsSeleniumTest.Utils
 
         public static void DeleteDownloadedFiles()
         {
-            try
+            string[] files = Directory.GetFiles(AppConfig.DownloadPath);
+            foreach (string file in files)
             {
-                string[] files = Directory.GetFiles(AppConfig.DownloadPath);
-                foreach (string file in files)
-                {
-                    File.Delete(file);
-                }
-            }
-            catch (IOException)
-            {
-
+                File.Delete(file);
             }
         }
 
